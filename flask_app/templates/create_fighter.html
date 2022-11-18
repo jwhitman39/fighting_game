@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Create a Fighter!</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Create a Fighter {{this_user.first_name}}!</h1>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/users/logout">Logout</a>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}                            
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div id="container">
+        <div class="divider_a">
+            <form action="/fighters/submit" method="post">
+                <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                        <label for="type">Type:</label>
+                        <select name="type" class="form-select">
+                            <option value="1">Ninja</option>
+                            <option value="2">Pirate</option>
+                            <option value="3">Viking</option>
+                            <option value="4">Knight</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" class="form-control" name="description" placeholder="Enter description">
+                </div>
+                <button type="submit" value="create_fighter" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="divider_b">
+            <h2>Fighter Panel Here:</h2>
+        </div>
+    </div>
+</body>
+</html>
