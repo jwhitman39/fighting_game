@@ -33,11 +33,12 @@ def submit_fighter():
     else:
         data={
             'name':request.form['name'],
-            'type_id':request.form['type'],
+            'type':request.form['type'],
             'description': request.form['description'],
             'user_id': session['user_id']
         }
         fighter.Fighter.add_fighter_to_db(data)
+        print(data)
         print('fighter successfully added to database! Hooray!')
         return redirect('/dashboard')
 

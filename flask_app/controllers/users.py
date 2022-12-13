@@ -53,6 +53,7 @@ def dashboard():
         data={
                 'id' : session['user_id']
             }
+    print(data)
     print('about to retrieve users and fighters...')
     return (
         render_template(

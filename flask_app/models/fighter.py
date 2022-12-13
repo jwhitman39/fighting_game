@@ -17,12 +17,12 @@ class Fighter:
         self.description=data['description']
         self.created_at=data['created_at']
         self.updated_at=data['updated_at']
+        self.type =data['type']
         self.user=None
-        self.type =None
 
     @classmethod
     def add_fighter_to_db (cls, data):
-        query="INSERT INTO fighters (name, type_id, description, user_id) VALUES (%(name)s, %(type_id)s, %(description)s, %(user_id)s);"
+        query="INSERT INTO fighters (name, type, description, user_id) VALUES (%(name)s, %(type)s, %(description)s, %(user_id)s);"
         return connectToMySQL(cls.db_name).query_db(query, data)
 
     @classmethod

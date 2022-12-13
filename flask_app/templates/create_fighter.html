@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <title>Create a Fighter!</title>
 </head>
-<body>
+<body class="bg-dark text-white"">
     <div class="header">
         <h1>Create a Fighter {{this_user.first_name}}!</h1>
         <a href="/dashboard">Dashboard</a>
@@ -31,10 +31,10 @@
                 <div class="form-group">
                         <label for="type">Type:</label>
                         <select name="type" class="form-select">
-                            <option value="1">Ninja</option>
-                            <option value="2">Pirate</option>
-                            <option value="3">Viking</option>
-                            <option value="4">Knight</option>
+                            <option value="Ninja">Ninja</option>
+                            <option value="Pirate">Pirate</option>
+                            <option value="Viking">Viking</option>
+                            <option value="Knight">Knight</option>
                         </select>
                 </div>
                 <div class="form-group">
